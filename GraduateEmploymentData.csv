@@ -1,4 +1,4 @@
-year,university,school,degree,(OER) Overall Employment Rate,(PFTER) Permanent Full Time Employment Rate,(BMM) Basic Monthly Mean,basic_monthly_median,(GMM) Gross Monthly Mean,(GMMe) Gross Monthly Median,(GM25P) Gross Monthly 25th Percentile,(GM75P) Gross Monthly 75th Percentile
+year,university,school,degree,(OER) Overall Employment Rate,(PFTER) Permanent Full Time Employment Rate,(BMM) Basic Monthly Mean,Basic Monthly Median,(GMM) Gross Monthly Mean,(GMMe) Gross Monthly Median,(GM25P) Gross Monthly 25th Percentile,(GM75P) Gross Monthly 75th Percentile
 2015,Nanyang Technological University,College of Business (Nanyang Business School),Business and Computing,100,100,4036,4184,4395,4583,3800,4876
 2018,Nanyang Technological University,College of Business (Nanyang Business School),Business and Computing ^,100,100,4536,4450,4572,4575,4200,4900
 2022,Nanyang Technological University,College of Business (Nanyang Business School),Double Degree in Business and Computer Engineering/Computing,100,100,6307,6000,6627,6500,6000,7500
