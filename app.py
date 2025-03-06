@@ -12,17 +12,19 @@ def main():
     st.title("Data Visualization Viewer")
     
     options = [
-        "bar_chart",
-        "box_plot",
-        "scatter_plot",
-        "stacked_bar_chart",
-        "anova_analysis",
-        "chi-squared_test",
-        "regression_analysis"
+        "Bar chart",
+        "Box plot",
+        "Scatter plot",
+        "Stacked Bar Chart",
+        "ANOVA Analysis",
+        "Chi-Squared test",
+        "Regression analysis"
     ]
     
     selected_option = st.selectbox("Select a visualization:", options)
 
+    selected_option = selected_option.lower().replace(" ", "_")
+    
     if selected_option != "anova_analysis":
     
         # Convert folder name format
