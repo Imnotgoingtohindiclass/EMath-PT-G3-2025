@@ -1,34 +1,49 @@
+import os
 import streamlit as st
-import pandas as pd
-import matplotlib.pyplot as plt
+from PIL import Image
 
-# Load the data (modify this based on your notebook's content)
-@st.cache_data
-def load_data():
-    return pd.read_csv("data.csv")
+def load_interpretation(file_path):
+    if os.path.exists(file_path):
+        with open(file_path, "r") as file:
+            return file.read()
+    return "Interpretation file not found."
 
-data = load_data()
-
-# Sidebar for user selection
-st.sidebar.title("Graph Selector")
-graph_option = st.sidebar.selectbox("Choose a graph type:", ["Line Graph", "Bar Chart", "Scatter Plot"])
-
-# Function to generate graphs
-def plot_graph(option):
-    fig, ax = plt.subplots()
-    if option == "Line Graph":
-        ax.plot(data["X"], data["Y"], marker='o', linestyle='-')
-        st.write("This is a line graph showing trends over time.")
-    elif option == "Bar Chart":
-        ax.bar(data["X"], data["Y"], color='blue')
-        st.write("This bar chart represents categorical data distribution.")
-    elif option == "Scatter Plot":
-        ax.scatter(data["X"], data["Y"], color='red')
-        st.write("This scatter plot visualizes the relationship between variables.")
+def main():
+    st.title("Data Visualization Viewer")
     
-    st.pyplot(fig)
+    options = [
+        "bar_chart",
+        "box_plot",
+        "scatter_plot",
+        "stacked_bar_chart",
+        "anova_analysis",
+        "chi-squared_test",
+        "regression_analysis"
+    ]
+    
+    selected_option = st.selectbox("Select a visualization:", options)
 
-# Display selected graph
-st.title("Interactive Graph Viewer")
-st.write("Select a graph type from the sidebar to visualize the data.")
-plot_graph(graph_option)
+    if selected_option != "anova_analysis":
+    
+        # Convert folder name format
+        image_filename = selected_option.lower() + ".png"
+        text_filename = selected_option.lower() + "_interpretation.txt"
+        
+        image_path = os.path.join("data_analysis", selected_option, image_filename)
+        text_path = os.path.join("data_analysis", selected_option, text_filename)
+        
+        if os.path.exists(image_path):
+            image = Image.open(image_path)
+            st.image(image, caption=f"{selected_option} visualization", use_container_width=True)
+        else:
+            st.warning("Image not found.")
+        
+        interpretation = load_interpretation(text_path)
+        st.markdown(f"""**Interpretation:** {interpretation}""")
+
+    elif selected_option == "anova_analysis":
+        st.image(os.path.join("data_analysis", "anova_analysis", "anova_plot_ERvsUNI.png"))
+        st.image(os.path.join("data_analysis", "anova_analysis", "anova_plot_ERvsDC.png"))
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,5 @@
+
+Scatter Plot Interpretation:
+* Each point shows a single data entry’s Overall Employment Rate vs. Gross Monthly Mean Salary.
+* Trend lines indicate whether higher employment rates correlate with higher or lower salaries in each category.
+* Overlapping lines or points suggest similarities among categories; distinctly separated lines suggest unique patterns.

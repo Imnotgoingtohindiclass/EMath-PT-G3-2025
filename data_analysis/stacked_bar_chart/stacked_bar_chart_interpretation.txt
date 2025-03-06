@@ -1,0 +1,5 @@
+
+Stacked Bar Chart Interpretation:
+* Compares average Overall Employment Rate and Permanent Full-Time Employment Rate by degree category.
+* The stacked segments show how much of the total employment rate is permanent full-time vs. other forms of employment.
+* Helps visualise which categories have a strong permanent full-time component relative to overall employment.

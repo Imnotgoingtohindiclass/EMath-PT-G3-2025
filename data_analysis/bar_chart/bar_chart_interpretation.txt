@@ -1,0 +1,15 @@
+
+Bar Chart Interpretation:
+1. Employment Rate Rankings:
+    - Medicine & Health shows the highest employment rate at approximately 95%
+    - Computer Science and Engineering follow closely with rates above 90%
+    - Arts & Social Sciences shows the lowest employment rate at around 85%
+
+2. Industry Implications:
+    - STEM fields consistently show strong employment outcomes
+    - Healthcare sector demonstrates strongest graduate employability
+    - Traditional humanities fields show relatively lower but still healthy employment rates
+
+3. Key Observations:
+    - The spread between highest and lowest rates is approximately 10%
+    - Most degree categories maintain employment rates above 85%

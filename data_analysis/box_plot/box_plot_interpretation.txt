@@ -1,0 +1,16 @@
+
+Box Plot Interpretation:
+1. Salary Distribution Analysis:
+    - Medicine & Health shows highest median salary (≈$4,500) with relatively small spread
+    - Law demonstrates second-highest median (≈$4,200) with larger variation
+    - Computer Science shows competitive median (≈$4,000) with consistent distribution
+    - Arts & Social Sciences shows lower median (≈$3,500) but some high-earning outliers
+
+2. Salary Spread:
+    - Engineering shows widest salary range, indicating diverse job opportunities
+    - Business demonstrates moderate spread with several high-paying outliers
+    - Sciences shows relatively compact distribution, suggesting consistent market value
+
+3. Outliers Analysis:
+    - Most high-salary outliers appear in Business and Engineering
+    - Few low-salary outliers across all categories
