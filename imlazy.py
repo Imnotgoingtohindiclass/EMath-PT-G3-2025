@@ -17,6 +17,7 @@ def create_folders(main_folder):
     for folder in subfolders:
         path = os.path.join(main_folder, folder)
         os.makedirs(path, exist_ok=True)
+        
 
 if __name__ == "__main__":
     create_folders("data_analysis")
