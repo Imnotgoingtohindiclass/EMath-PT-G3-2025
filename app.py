@@ -2,6 +2,8 @@ import os
 import streamlit as st
 from PIL import Image
 
+st.set_page_config(layout="wide")
+
 def load_interpretation(file_path):
     if os.path.exists(file_path):
         with open(file_path, "r") as file:
@@ -26,8 +28,6 @@ def main():
     selected_option = selected_option.lower().replace(" ", "_")
     
     if selected_option != "anova_analysis":
-    
-        # Convert folder name format
         image_filename = selected_option.lower() + ".png"
         text_filename = selected_option.lower() + "_interpretation.txt"
         
@@ -41,7 +41,11 @@ def main():
             st.warning("Image not found.")
         
         interpretation = load_interpretation(text_path)
-        st.markdown(f"""**Interpretation:** {interpretation}""")
+        if selected_option == "regression_analysis":
+            st.code(f"""Interpretation: {interpretation}""", language="text")
+            st.info("This is rendered as a code block as the formatting is not supported by Streamlit's st.write() method.")
+        else:
+            st.write(f"""**Interpretation:** {interpretation}""")
 
     elif selected_option == "anova_analysis":
         st.image(os.path.join("data_analysis", "anova_analysis", "anova_plot_ERvsUNI.png"))
