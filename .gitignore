@@ -4,3 +4,4 @@ venv
 .devcontainer
 .DS_Store
 imlazy.py
+.DS_Store
