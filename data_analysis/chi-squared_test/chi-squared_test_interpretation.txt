@@ -3,17 +3,17 @@ Chi-Square Test Analysis Interpretation:
 
 1. University vs Employment Rate:
    - Null Hypothesis: There is no relationship between university choice and employment rate
-   - P-value: 0.5929
-   - Interpretation: Fail to reject the null hypothesis (p > 0.05)
-   - Key Finding: No significant relationship between university choice and employment rate
+   - P-value: 0.0000
+   - Interpretation: Reject the null hypothesis (p < 0.05)
+   - Key Finding: There is a significant relationship between university choice and employment rate
 
 2. Degree Category vs Employment Rate:
    - Null Hypothesis: There is no relationship between degree category and employment rate
-   - P-value: 0.0481
+   - P-value: 0.0000
    - Interpretation: Reject the null hypothesis (p < 0.05)
    - Key Finding: There is a significant relationship between degree category and employment rate
 
 3. Overall Conclusions:
-   - University choice and degree category show different patterns in relation to employment rates
+   - Both university choice and degree category show similar patterns in relation to employment rates
    - The heatmaps visualize the frequency distribution of employment rates across different universities and degree categories
    - Darker colors in the heatmap indicate higher frequencies of observations in those categories
