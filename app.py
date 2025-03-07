@@ -11,22 +11,26 @@ def load_interpretation(file_path):
     return "Interpretation file not found."
 
 def main():
-    st.title("Data Visualisation Viewer")
+    st.title("📊 Data Visualization Viewer")
     
-    options = [
-        "Bar chart",
-        "Box plot",
-        "Scatter plot",
-        "Stacked Bar Chart",
-        "ANOVA Analysis",
-        "Chi-Squared test",
-        "Regression analysis"
-    ]
-    
+    # Sidebar with a styled selection box
     with st.sidebar:
-        selected_option = st.selectbox("Select a visualization:", options)
+        st.header("🔍 Select Visualization")
+        options = [
+            "Bar chart",
+            "Box plot",
+            "Scatter plot",
+            "Stacked Bar Chart",
+            "ANOVA Analysis",
+            "Chi-Squared test",
+            "Regression analysis"
+        ]
+        selected_option = st.selectbox("", options)
     
     selected_option = selected_option.lower().replace(" ", "_")
+    
+    st.markdown("---")
+    st.subheader(f"📈 {selected_option.replace('_', ' ').title()} Visualization")
     
     if selected_option != "anova_analysis":
         image_filename = selected_option + ".png"
@@ -35,22 +39,27 @@ def main():
         image_path = os.path.join("data_analysis", selected_option, image_filename)
         text_path = os.path.join("data_analysis", selected_option, text_filename)
         
+        # Display image with better formatting
         if os.path.exists(image_path):
-            image = Image.open(image_path)
-            st.image(image, caption=f"{selected_option} visualization", use_container_width=True)
+            st.image(image_path, caption=f"{selected_option.replace('_', ' ').title()} Visualization", use_container_width=True)
         else:
-            st.warning("Image not found.")
+            st.warning("⚠️ Image not found.")
         
+        # Display interpretation text
         interpretation = load_interpretation(text_path)
-        if selected_option == "regression_analysis":
-            st.code(f"""Interpretation: {interpretation}""", language="text")
-            st.info("This is rendered as a code block as the formatting is not supported by Streamlit's st.write() method.")
-        else:
-            st.write(f"""**Interpretation:** {interpretation}""")
+        with st.expander("📜 Interpretation", expanded=True):
+            if selected_option == "regression_analysis":
+                st.code(f"""{interpretation}""", language="text")
+                st.warning("💡 This is rendered as a code block due to the formatting constraints of Streamlit's st.write() Method.")
+            else:
+                st.write(f"**{interpretation}**")
     
     elif selected_option == "anova_analysis":
-        st.image(os.path.join("data_analysis", "anova_analysis", "anova_plot_ERvsUNI.png"))
-        st.image(os.path.join("data_analysis", "anova_analysis", "anova_plot_ERvsDC.png"))
+        col1, col2 = st.columns(2)
+        with col1:
+            st.image(os.path.join("data_analysis", "anova_analysis", "anova_plot_ERvsUNI.png"), caption="ER vs UNI")
+        with col2:
+            st.image(os.path.join("data_analysis", "anova_analysis", "anova_plot_ERvsDC.png"), caption="ER vs DC")
 
 if __name__ == "__main__":
     main()
