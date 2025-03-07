@@ -11,7 +11,7 @@ def load_interpretation(file_path):
     return "Interpretation file not found."
 
 def main():
-    st.title("Data Visualization Viewer")
+    st.title("Data Visualisation Viewer")
     
     options = [
         "Bar chart",
@@ -23,13 +23,14 @@ def main():
         "Regression analysis"
     ]
     
-    selected_option = st.selectbox("Select a visualization:", options)
-
+    with st.sidebar:
+        selected_option = st.selectbox("Select a visualization:", options)
+    
     selected_option = selected_option.lower().replace(" ", "_")
     
     if selected_option != "anova_analysis":
-        image_filename = selected_option.lower() + ".png"
-        text_filename = selected_option.lower() + "_interpretation.txt"
+        image_filename = selected_option + ".png"
+        text_filename = selected_option + "_interpretation.txt"
         
         image_path = os.path.join("data_analysis", selected_option, image_filename)
         text_path = os.path.join("data_analysis", selected_option, text_filename)
@@ -46,7 +47,7 @@ def main():
             st.info("This is rendered as a code block as the formatting is not supported by Streamlit's st.write() method.")
         else:
             st.write(f"""**Interpretation:** {interpretation}""")
-
+    
     elif selected_option == "anova_analysis":
         st.image(os.path.join("data_analysis", "anova_analysis", "anova_plot_ERvsUNI.png"))
         st.image(os.path.join("data_analysis", "anova_analysis", "anova_plot_ERvsDC.png"))

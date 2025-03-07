@@ -3,3 +3,4 @@ __pycache__
 .devcontainer/devcontainer.json
 imlazy.py
 .DS_Store
+venv
