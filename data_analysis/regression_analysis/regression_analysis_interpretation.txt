@@ -460,3 +460,36 @@ Regression Analysis Interpretation:
     - The multiple regression model explains 15.7% of the variance.
     - The model's overall significance is significant (p < 0.05).
 
+
+Regression Analysis Results:
+--------------------------------------------------------------------------------
+
+1. Simple Linear Regression (Employment Rate vs Salary):
+Slope: 38.52
+Intercept: 246.89
+R-squared: 0.1289
+P-value: 6.5531e-37
+Standard Error: 2.93
+
+2. Multiple Regression Results:
+===============================================================================================================
+                                                  coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------------------------------------
+const                                         969.3734    289.685      3.346      0.001     401.011    1537.736
+(OER) Overall Employment Rate                  20.4016      4.101      4.975      0.000      12.355      28.448
+(PFTER) Permanent Full Time Employment Rate    11.4640      1.845      6.212      0.000       7.843      15.085
+===============================================================================================================
+
+Regression Analysis Interpretation:
+1. Simple Linear Regression:
+    - The relationship between employment rate and salary is positive.
+    - For each 1% increase in employment rate, salary changes by $38.52.
+    - The model explains 12.9% of the variance in salaries.
+    - The relationship is statistically significant (p < 0.05).
+
+2. Multiple Regression:
+    - Overall Employment Rate coefficient: 20.40
+    - Permanent Full-Time Employment Rate coefficient: 11.46
+    - The multiple regression model explains 15.7% of the variance.
+    - The model's overall significance is significant (p < 0.05).
+
