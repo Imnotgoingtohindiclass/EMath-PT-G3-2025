@@ -1,0 +1,10 @@
+
+University vs. Degree Impact on Salary Interpretation:
+1. Relative Impact:
+   - [Note whether university or degree category shows greater variation in salary]
+   - [Note the range of salaries for universities compared to degree categories]
+
+2. Key Observations:
+   - [Note any patterns that emerge from the side-by-side comparison]
+   - [Note which factor appears to have a stronger influence on salary outcomes]
+   - This paired visualization helps understand the relative importance of university choice versus degree choice
