@@ -1,0 +1,14 @@
+
+University Employment Breakdown Interpretation:
+1. Overall Employment Rate:
+   - [Note universities with highest and lowest overall employment rates]
+   - [Note approximate difference between highest and lowest]
+
+2. Full-Time Employment Rate:
+   - [Note universities with highest and lowest full-time employment rates]
+   - [Note any universities with large gaps between overall and full-time rates]
+
+3. Key Observations:
+   - [Note any patterns or trends]
+   - [Note any surprising results]
+   - This visualization directly addresses the question of how university choice impacts employment prospects
