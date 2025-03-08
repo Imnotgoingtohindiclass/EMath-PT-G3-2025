@@ -1,0 +1,14 @@
+
+Salary Distribution by University Box Plot Interpretation:
+1. Median Salary Comparison:
+   - [Note universities with highest and lowest median salaries]
+   - [Note the approximate difference between highest and lowest medians]
+
+2. Salary Variability:
+   - [Note universities with widest and narrowest salary ranges]
+   - [Note universities with most outliers]
+
+3. Key Observations:
+   - [Note any skewness in distributions]
+   - [Note any particularly high or low outliers]
+   - This visualization helps understand not just average salaries but the full distribution of salaries by university
