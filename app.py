@@ -2,8 +2,10 @@ import os
 import streamlit as st
 from PIL import Image
 
-st.set_page_config(layout="wide")
+# Configure the page layout
+st.set_page_config(page_title="Data Visualization Viewer", layout="wide")
 
+# Function to load interpretation text
 def load_interpretation(file_path):
     if os.path.exists(file_path):
         with open(file_path, "r") as file:
@@ -61,12 +63,20 @@ def main():
             else:
                 st.write(f"**{interpretation}**")
     
-    elif selected_option == "anova_analysis":
-        col1, col2 = st.columns(2)
-        with col1:
-            st.image(os.path.join("data_analysis", "anova_analysis", "anova_plot_ERvsUNI.png"), caption="ER vs UNI")
-        with col2:
-            st.image(os.path.join("data_analysis", "anova_analysis", "anova_plot_ERvsDC.png"), caption="ER vs DC")
+    with col1:
+        anova1_path = os.path.join("data_analysis", "anova_analysis", "anova_plot_ERvsUNI.png")
+        if os.path.exists(anova1_path):
+            st.image(anova1_path, caption="ANOVA: ER vs UNI", use_container_width=True)
+        else: 
+            st.warning("⚠️ Image not found.")
+    
+    with col2:
+        anova2_path = os.path.join("data_analysis", "anova_analysis", "anova_plot_ERvsDC.png")
+        if os.path.exists(anova2_path):
+            st.image(anova2_path, caption="ANOVA: ER vs DC", use_container_width=True)
+        else:
+            st.warning("⚠️ Image not found.")
 
-if __name__ == "__main__":
-    main()
+# Footer
+st.markdown("---")
+st.caption("Designed with ❤️ using Streamlit")
