@@ -1,0 +1,16 @@
+
+Descriptive Statistics Tables Interpretation:
+1. University Statistics:
+   - [Note universities with highest and lowest mean/median salaries]
+   - [Note universities with highest and lowest employment rates]
+   - [Note universities with most variable outcomes (highest std)]
+
+2. Degree Statistics:
+   - [Note degree categories with highest and lowest mean/median salaries]
+   - [Note degree categories with highest and lowest employment rates]
+   - [Note degree categories with most variable outcomes (highest std)]
+
+3. Key Insights:
+   - These tables provide precise numerical values to complement the visualizations
+   - [Note any particularly interesting or surprising statistics]
+   - The tables help quantify the exact differences between universities and degree programs

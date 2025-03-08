@@ -1,6 +1,14 @@
 import os
 import streamlit as st
 from PIL import Image
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from scipy import stats
+from scipy.stats import chi2_contingency
+import statsmodels.api as sm
+from statsmodels.formula.api import ols
 
 # Configure the page layout
 st.set_page_config(page_title="Graduate Employment Analysis", layout="wide")
@@ -85,9 +93,6 @@ def show_methodology():
     | **External Factors** | Other factors, such as personal connections, may influence employment but are not explicitly measured |
     """)
 
-
-
-
 def main():
     # Add a navigation menu in the sidebar
     with st.sidebar:
@@ -154,7 +159,12 @@ def main():
                 "Stacked Bar Chart",
                 "ANOVA Analysis",
                 "Chi-Squared test",
-                "Regression analysis"
+                "Regression analysis",
+                # Add new visualization options
+                "University Salary Comparison",
+                "University × Degree Salary Heatmap",
+                "Employment by University",
+                "University vs Degree Impact"
             ]
             selected_option = st.selectbox("Choose visualisation", options, label_visibility="collapsed")
         
@@ -179,6 +189,63 @@ def main():
                     st.image(anova2_path, caption="ANOVA: ER vs DC", use_container_width=True)
                 else:
                     st.warning("Image not found.")
+        
+        # Handle new visualization types
+        elif selected_option == "university_salary_comparison":
+            image_path = os.path.join("data_analysis", "bar_chart", "university_salary_comparison.png")
+            text_path = os.path.join("data_analysis", "bar_chart", "university_salary_interpretation.txt")
+            
+            if os.path.exists(image_path):
+                st.image(image_path, caption="Mean Salary by University", use_container_width=True)
+            else:
+                st.warning("University salary comparison image not found. Please run the code to generate this visualization first.")
+            
+            # Display interpretation text
+            interpretation = load_interpretation(text_path)
+            with st.expander("Interpretation", expanded=True):
+                st.write(f"**{interpretation}**")
+                
+        elif selected_option == "university_×_degree_salary_heatmap":
+            image_path = os.path.join("data_analysis", "heatmap", "university_degree_salary_heatmap.png")
+            text_path = os.path.join("data_analysis", "heatmap", "university_degree_salary_heatmap_interpretation.txt")
+            
+            if os.path.exists(image_path):
+                st.image(image_path, caption="Mean Salary by University and Degree Category", use_container_width=True)
+            else:
+                st.warning("University × Degree salary heatmap image not found. Please run the code to generate this visualization first.")
+            
+            # Display interpretation text
+            interpretation = load_interpretation(text_path)
+            with st.expander("Interpretation", expanded=True):
+                st.write(f"**{interpretation}**")
+                
+        elif selected_option == "employment_by_university":
+            image_path = os.path.join("data_analysis", "bar_chart", "university_employment_breakdown.png")
+            text_path = os.path.join("data_analysis", "bar_chart", "university_employment_interpretation.txt")
+            
+            if os.path.exists(image_path):
+                st.image(image_path, caption="Employment Breakdown by University", use_container_width=True)
+            else:
+                st.warning("Employment by university image not found. Please run the code to generate this visualization first.")
+            
+            # Display interpretation text
+            interpretation = load_interpretation(text_path)
+            with st.expander("Interpretation", expanded=True):
+                st.write(f"**{interpretation}**")
+                
+        elif selected_option == "university_vs_degree_impact":
+            image_path = os.path.join("data_analysis", "bar_chart", "university_vs_degree_salary_impact.png")
+            text_path = os.path.join("data_analysis", "bar_chart", "university_vs_degree_salary_impact_interpretation.txt")
+            
+            if os.path.exists(image_path):
+                st.image(image_path, caption="University vs Degree Impact on Salary", use_container_width=True)
+            else:
+                st.warning("University vs Degree impact image not found. Please run the code to generate this visualization first.")
+            
+            # Display interpretation text
+            interpretation = load_interpretation(text_path)
+            with st.expander("Interpretation", expanded=True):
+                st.write(f"**{interpretation}**")
         
         else:
             # Special handling for chi-squared test
