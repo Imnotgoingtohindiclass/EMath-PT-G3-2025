@@ -73,9 +73,9 @@ def show_methodology():
     
     | Category | Methods/Tools | Purpose |
     |----------|---------------|----------|
-    | **Descriptive Statistics** | • Mean<br>• Median<br>• Standard deviation<br>• Range | Basic statistical measures to understand data distribution |
-    | **Inferential Statistics** | • ANOVA<br>• Chi-square tests<br>• Regression analysis | • Compare employment rates by university and degree<br>• Analyse relationships between university and employment status<br>• Study relationship between degree and salary |
-    | **Tools** | • Python<br>• Excel | • Statistical analysis and plotting<br>• Data organisation and charts |
+    | **Descriptive Statistics** | • Mean • Median  • Standard deviation  • Range | Basic statistical measures to understand data distribution |
+    | **Inferential Statistics** | • ANOVA  • Chi-square tests  • Regression analysis | • Compare employment rates by university and degree  • Analyse relationships between university and employment status  • Study relationship between degree and salary |
+    | **Tools** | • Python  • Excel | • Statistical analysis and plotting  • Data organisation and charts |
     
     ### Assumptions
     
@@ -84,6 +84,9 @@ def show_methodology():
     | **Data Quality** | The data used is accurate and unbiased |
     | **External Factors** | Other factors, such as personal connections, may influence employment but are not explicitly measured |
     """)
+
+
+
 
 def main():
     # Add a navigation menu in the sidebar
