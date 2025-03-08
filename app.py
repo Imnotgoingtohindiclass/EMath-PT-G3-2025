@@ -47,8 +47,8 @@ def show_problem_statement():
     | Component | Description |
     |-----------|-------------|
     | **Goal** | Your task is to analyse the impact of the university and degree course on the employment rates of their graduates in Singapore. The goal is to identify trends and relationships that can guide students into make informed decisions about their education and future careers. |
-    | **Role** | You are a statistician working for MOE. You have been asked to analyze graduate employment outcomes from Singapore universities. Your job is to perform statistical analysis and present findings through a report and poster. |
-    | **Audience** | The target audience is students. With the ever-changing industry, finding a future safe job will become more and more difficult as you do not know the industries that will rise and the industries that will fall. You need to convince them to use your data-driven insights to help choose degree programs. |
+    | **Role** | You are a statistician working for MOE. You have been asked to analyse graduate employment outcomes from Singapore universities. Your job is to perform statistical analysis and present findings through a report and poster. |
+    | **Audience** | The target audience is students. With the ever-changing industry, finding a future safe job will become more and more difficult as you do not know the industries that will rise and the industries that will fall. You need to convince them to use your data-driven insights to help choose degree programmes. |
     | **Situation** | The context you find yourself in is the changing job market in Singapore. The challenge involves dealing with analysing large datasets, identifying patterns, and ensuring that the insights are accurate and meaningful. |
     | **Product** | You will create a report and poster in order to summarise your findings. |
     | **Standards** | Your analysis must include descriptive statistics and inferential statistics (ANOVA, chi-square tests, and regression analysis). Your graphical representations must be clear and well-labelled. Your final product should be well-organised, visually appealing, and have no errors. |
@@ -62,26 +62,26 @@ def show_methodology():
     
     | Independent Variables | Dependent Variables | Relationship Analysis |
     |---------------------|-------------------|---------------------|
-    | **University** | **Overall employment rate** | Compare employment rates across universities for same degree programs |
-    | **University** | **Full-time employment rate** | Analyze impact of university choice on full-time employment prospects |
-    | **University** | **Mean monthly salary** | Evaluate salary differences between universities for similar programs |
-    | **Degree course** | **Overall employment rate** | Compare employment rates between different degree programs |
-    | **Degree course** | **Full-time employment rate** | Analyze which degrees lead to better full-time employment |
-    | **Degree course** | **Mean monthly salary** | Evaluate salary potential across different degree programs |
+    | **University** | **Overall employment rate** | Compare employment rates across universities for same degree programmes |
+    | **University** | **Full-time employment rate** | Analyse impact of university choice on full-time employment prospects |
+    | **University** | **Mean monthly salary** | Evaluate salary differences between universities for similar programmes |
+    | **Degree course** | **Overall employment rate** | Compare employment rates between different degree programmes |
+    | **Degree course** | **Full-time employment rate** | Analyse which degrees lead to better full-time employment |
+    | **Degree course** | **Mean monthly salary** | Evaluate salary potential across different degree programmes |
     
     ### Statistical Methods and Tools
     
     | Category | Methods/Tools | Purpose |
     |----------|---------------|----------|
     | **Descriptive Statistics** | • Mean<br>• Median<br>• Standard deviation<br>• Range | Basic statistical measures to understand data distribution |
-    | **Inferential Statistics** | • ANOVA<br>• Chi-square tests<br>• Regression analysis | • Compare employment rates by university and degree<br>• Analyze relationships between university and employment status<br>• Study relationship between degree and salary |
-    | **Tools** | • Python<br>• Excel | • Statistical analysis and plotting<br>• Data organization and charts |
+    | **Inferential Statistics** | • ANOVA<br>• Chi-square tests<br>• Regression analysis | • Compare employment rates by university and degree<br>• Analyse relationships between university and employment status<br>• Study relationship between degree and salary |
+    | **Tools** | • Python<br>• Excel | • Statistical analysis and plotting<br>• Data organisation and charts |
     
     ### Assumptions
     
     | Assumption | Details |
     |------------|----------|
-    | **Data Quality** | The data used is accurate and non-biased |
+    | **Data Quality** | The data used is accurate and unbiased |
     | **External Factors** | Other factors, such as personal connections, may influence employment but are not explicitly measured |
     """)
 
@@ -121,8 +121,8 @@ def main():
             st.session_state.page = "Problem Statement"
         if st.button("Methodology"):
             st.session_state.page = "Methodology"
-        if st.button("Data Visualizations"):
-            st.session_state.page = "Data Visualizations"
+        if st.button("Data Visualisations"):
+            st.session_state.page = "Data Visualisations"
         
         # Initialize session state if not exists
         if 'page' not in st.session_state:
@@ -151,7 +151,7 @@ def main():
                 "Chi-Squared test",
                 "Regression analysis"
             ]
-            selected_option = st.selectbox("Choose visualization", options, label_visibility="collapsed")
+            selected_option = st.selectbox("Choose visualisation", options, label_visibility="collapsed")
         
         selected_option = selected_option.lower().replace(" ", "_")
         
