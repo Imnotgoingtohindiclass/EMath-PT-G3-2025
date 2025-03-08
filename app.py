@@ -1,21 +1,18 @@
 import os
 import streamlit as st
-from PIL import Image
 
-# Configure the page layout
-st.set_page_config(page_title="Data Visualisation Viewer", layout="wide")
+# make the website use the full width of the browser
+#st.set_page_config(page_title="Data Visualisation Viewer", layout="wide")
 
-# Function to load interpretation text
+# this function loads the interpretation text
 def load_interpretation(file_path):
     if os.path.exists(file_path):
         with open(file_path, "r") as file:
             return file.read()
-    return "Interpretation file not found."
+    return "Interpretation file not found. Contact the creator to resolve this issue."
 
 def main():
     st.title("📊 Data Visualisation Viewer")
-    
-    # Sidebar with a styled selection box
     with st.sidebar:
         st.header("🔍 Select Visualisation")
         options = [
@@ -40,19 +37,18 @@ def main():
         with col1:
             anova1_path = os.path.join("data_analysis", "anova_analysis", "anova_plot_ERvsUNI.png")
             if os.path.exists(anova1_path):
-                st.image(anova1_path, caption="ANOVA: ER vs UNI", use_container_width=True)
+                st.image(anova1_path, caption="ANOVA: Employment Rate vs University", use_container_width=True)
             else: 
                 st.warning("⚠️ Image not found.")
         
         with col2:
             anova2_path = os.path.join("data_analysis", "anova_analysis", "anova_plot_ERvsDC.png")
             if os.path.exists(anova2_path):
-                st.image(anova2_path, caption="ANOVA: ER vs DC", use_container_width=True)
+                st.image(anova2_path, caption="ANOVA: Employment Rate vs Degree Category", use_container_width=True)
             else:
                 st.warning("⚠️ Image not found.")
     
     else:
-        # Special handling for chi-squared test
         if selected_option == "chi-squared_test":
             image_filename = "chi-squared_test_plot.png"
             text_filename = "chi-squared_test_interpretation.txt"
@@ -65,13 +61,11 @@ def main():
         image_path = os.path.join("data_analysis", dir_name, image_filename)
         text_path = os.path.join("data_analysis", dir_name, text_filename)
         
-        # Display image with better formatting
         if os.path.exists(image_path):
             st.image(image_path, caption=f"{selected_option.replace('_', ' ').title()} Visualisation", use_container_width=True)
         else:
             st.warning("⚠️ Image not found.")
         
-        # Display interpretation text
         interpretation = load_interpretation(text_path)
         with st.expander("📜 Interpretation", expanded=True):
             if selected_option == "regression_analysis":
@@ -79,10 +73,6 @@ def main():
                 st.warning("💡 This is rendered as a code block due to the formatting constraints of Streamlit's st.write() Method.")
             else:
                 st.write(f"**{interpretation}**")
-    
-# Footer
-st.markdown("---")
-st.caption("Designed with ❤️ using Streamlit")
 
 if __name__ == "__main__":
     main()
