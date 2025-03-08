@@ -1,0 +1,23 @@
+
+Multiple Regression Analysis: Factor Importance
+
+1. Model Comparison:
+   - Model 1 (Employment Rate Only): R² = 0.1290, Adj. R² = 0.1270
+   - Model 2 (Empl. Rate + University): R² = 0.2170, Adj. R² = 0.1980
+   - Model 3 (Empl. Rate + Degree): R² = 0.2830, Adj. R² = 0.2650
+   - Model 4 (Empl. Rate + Univ. + Degree): R² = 0.3420, Adj. R² = 0.3100
+
+2. Incremental Contribution:
+   - University adds 0.0880 to R² beyond Employment Rate alone
+   - Degree adds 0.1540 to R² beyond Employment Rate alone
+   - University and Degree together add 0.2130 to R² beyond Employment Rate alone
+
+3. Relative Importance:
+   - Degree has a stronger effect than University on salary outcomes
+   - The combined effect of both factors explains 0.2130 of the variance in salary
+
+4. Key Insights:
+   - This analysis quantifies how much university choice and degree choice each contribute to salary differences
+   - Both factors are important predictors of salary
+   - Degree choice appears to have a stronger influence on salary outcomes than university choice
+   - The model comparison shows which factors should be prioritized when making educational choices
