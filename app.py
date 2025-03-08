@@ -100,19 +100,23 @@ def main():
                 margin-bottom: 10px;
                 background-color: transparent;
                 font-size: 16px;
-                border: none;
+                border: 1px solid transparent;
                 border-radius: 5px;
+                transition: background-color 0.3s, color 0.3s, border-color 0.3s;  /* Ensure transition for background, color, and border */
             }
             div.stButton > button:hover {
                 background-color: #f0f2f6;
                 border-color: #f0f2f6;
+                color: #333; /* Change text color for visibility */
             }
             div.stButton > button:active {
                 background-color: #e0e2e6;
                 border-color: #e0e2e6;
+                color: #333; /* Change text color for visibility */
             }
             </style>
         """, unsafe_allow_html=True)
+
         
         # Navigation buttons
         if st.button("Introduction"):
@@ -123,12 +127,10 @@ def main():
             st.session_state.page = "Methodology"
         if st.button("Data Visualisations"):
             st.session_state.page = "Data Visualisations"
-        
-        # Initialize session state if not exists
+
         if 'page' not in st.session_state:
             st.session_state.page = "Introduction"
-    
-    # Display the selected page
+
     if st.session_state.page == "Introduction":
         show_introduction()
     elif st.session_state.page == "Problem Statement":
