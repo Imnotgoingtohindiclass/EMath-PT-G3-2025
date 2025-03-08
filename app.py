@@ -33,11 +33,18 @@ def main():
     st.subheader(f"📈 {selected_option.replace('_', ' ').title()} Visualization")
     
     if selected_option != "anova_analysis":
-        image_filename = selected_option + ".png"
-        text_filename = selected_option + "_interpretation.txt"
+        # Special handling for chi-squared test
+        if selected_option == "chi-squared_test":
+            image_filename = "chi-squared_test_plot.png"
+            text_filename = "chi-squared_test_interpretation.txt"
+            dir_name = "chi-squared_test"
+        else:
+            image_filename = selected_option + ".png"
+            text_filename = selected_option + "_interpretation.txt"
+            dir_name = selected_option
         
-        image_path = os.path.join("data_analysis", selected_option, image_filename)
-        text_path = os.path.join("data_analysis", selected_option, text_filename)
+        image_path = os.path.join("data_analysis", dir_name, image_filename)
+        text_path = os.path.join("data_analysis", dir_name, text_filename)
         
         # Display image with better formatting
         if os.path.exists(image_path):
