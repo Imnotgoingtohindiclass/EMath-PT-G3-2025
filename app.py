@@ -152,28 +152,47 @@ def main():
         # Sidebar with a styled selection box
         with st.sidebar:
             st.header("Select Visualisation")
-            options = [
-                "Bar chart",
-                "Box plot",
-                "Scatter plot",
-                "Stacked Bar Chart",
-                "ANOVA Analysis",
-                "Chi-Squared test",
-                "Regression analysis",
-                # Add new visualization options
-                "University Salary Comparison",
-                "University × Degree Salary Heatmap",
-                "Employment by University",
-                "University vs Degree Impact"
-            ]
-            selected_option = st.selectbox("Choose visualisation", options, label_visibility="collapsed")
-        
-        selected_option = selected_option.lower().replace(" ", "_")
+            
+            # Create categories for visualizations
+            visualization_categories = {
+                "Descriptive Analysis": [
+                    "Bar chart (Employment Rate by Degree)",
+                    "Box plot (Salary by Degree)",
+                    "Scatter plot (Employment Rate vs Salary)",
+                    "Stacked Bar Chart (Employment Types by Degree)",
+                    "University Salary Comparison (Salary by University)",
+                    "University × Degree Salary Heatmap (Salary by University & Degree)",
+                    "Employment by University (Employment Rate by University)",
+                    "University vs Degree Impact (Salary Comparison)"
+                ],
+                "Inferential Analysis": [
+                    "ANOVA Analysis (Employment Rate Differences)",
+                    "Chi-Squared test (Employment Rate Distribution)",
+                    "Regression analysis (Employment Rate vs Salary)"
+                ]
+            }
+            
+            # First, select the category
+            category = st.radio("Select Analysis Type:", list(visualization_categories.keys()))
+            
+            # Then, select the visualization within that category
+            selected_option = st.selectbox(
+                "Choose visualisation:", 
+                visualization_categories[category],
+                label_visibility="collapsed"
+            )
+            
+            # Extract the base name without the description
+            base_option = selected_option.split(" (")[0]
+            
+        # Convert the selected option to the format used in file paths
+        selected_option_path = base_option.lower().replace(" ", "_")
         
         st.markdown("---")
-        st.subheader(f"{selected_option.replace('_', ' ').title()} Visualisation")
+        st.subheader(f"{base_option} Visualisation")
+        st.caption(f"Investigating: {selected_option.split('(')[1].replace(')', '')}")
         
-        if selected_option == "anova_analysis":
+        if selected_option_path == "anova_analysis":
             col1, col2 = st.columns(2)
             
             with col1:
@@ -191,7 +210,7 @@ def main():
                     st.warning("Image not found.")
         
         # Handle new visualization types
-        elif selected_option == "university_salary_comparison":
+        elif selected_option_path == "university_salary_comparison":
             image_path = os.path.join("data_analysis", "bar_chart", "university_salary_comparison.png")
             text_path = os.path.join("data_analysis", "bar_chart", "university_salary_interpretation.txt")
             
@@ -205,7 +224,7 @@ def main():
             with st.expander("Interpretation", expanded=True):
                 st.write(f"**{interpretation}**")
                 
-        elif selected_option == "university_×_degree_salary_heatmap":
+        elif selected_option_path == "university_×_degree_salary_heatmap":
             image_path = os.path.join("data_analysis", "heatmap", "university_degree_salary_heatmap.png")
             text_path = os.path.join("data_analysis", "heatmap", "university_degree_salary_heatmap_interpretation.txt")
             
@@ -219,7 +238,7 @@ def main():
             with st.expander("Interpretation", expanded=True):
                 st.write(f"**{interpretation}**")
                 
-        elif selected_option == "employment_by_university":
+        elif selected_option_path == "employment_by_university":
             image_path = os.path.join("data_analysis", "bar_chart", "university_employment_breakdown.png")
             text_path = os.path.join("data_analysis", "bar_chart", "university_employment_interpretation.txt")
             
@@ -233,7 +252,7 @@ def main():
             with st.expander("Interpretation", expanded=True):
                 st.write(f"**{interpretation}**")
                 
-        elif selected_option == "university_vs_degree_impact":
+        elif selected_option_path == "university_vs_degree_impact":
             image_path = os.path.join("data_analysis", "bar_chart", "university_vs_degree_salary_impact.png")
             text_path = os.path.join("data_analysis", "bar_chart", "university_vs_degree_salary_impact_interpretation.txt")
             
@@ -249,28 +268,28 @@ def main():
         
         else:
             # Special handling for chi-squared test
-            if selected_option == "chi-squared_test":
+            if selected_option_path == "chi-squared_test":
                 image_filename = "chi-squared_test_plot.png"
                 text_filename = "chi-squared_test_interpretation.txt"
                 dir_name = "chi-squared_test"
             else:
-                image_filename = selected_option + ".png"
-                text_filename = selected_option + "_interpretation.txt"
-                dir_name = selected_option
+                image_filename = selected_option_path + ".png"
+                text_filename = selected_option_path + "_interpretation.txt"
+                dir_name = selected_option_path
             
             image_path = os.path.join("data_analysis", dir_name, image_filename)
             text_path = os.path.join("data_analysis", dir_name, text_filename)
             
             # Display image with better formatting
             if os.path.exists(image_path):
-                st.image(image_path, caption=f"{selected_option.replace('_', ' ').title()} Visualisation", use_container_width=True)
+                st.image(image_path, caption=f"{base_option} Visualisation", use_container_width=True)
             else:
                 st.warning("Image not found.")
             
             # Display interpretation text
             interpretation = load_interpretation(text_path)
             with st.expander("Interpretation", expanded=True):
-                if selected_option == "regression_analysis":
+                if selected_option_path == "regression_analysis":
                     st.code(f"""{interpretation}""", language="text")
                     st.warning("This is rendered as a code block due to the formatting constraints of Streamlit's st.write() Method.")
                 else:
