@@ -1,0 +1,20 @@
+
+University × Degree Salary Heatmap Interpretation:
+1. Highest Salary Combinations:
+   - National University of Singapore (Law) and Singapore Management University (Law) show the highest salaries (5252 and 5330 SGD)
+   - Singapore Institute of Technology has the lowest salaries for Business degrees (2913 SGD)
+
+2. University Effect:
+   - Singapore Management University consistently shows higher salaries across multiple degree categories
+   - National University of Singapore also performs well across most degree categories
+   - Singapore Institute of Technology generally shows lower salaries compared to other universities
+
+3. Degree Effect:
+   - Law consistently yields the highest salaries regardless of university (5252-5330 SGD)
+   - Computer Science also shows strong salary outcomes across universities (3914-4628 SGD)
+   - Business degrees show significant variation depending on the university (2913-4296 SGD)
+
+4. Key Insights:
+   - This visualization directly addresses the question of how university choice affects salary for similar degree programs
+   - The university effect appears strongest for Business and Computer Science degrees
+   - Law shows consistently high salaries regardless of institution
