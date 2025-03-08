@@ -1,0 +1,10 @@
+
+University Salary Comparison Interpretation:
+1. Salary Rankings:
+   - [You can fill in the highest and lowest universities once you see the results]
+   - The difference between highest and lowest paying universities is approximately [X] SGD
+
+2. Key Observations:
+   - [Note any particularly high or low outliers]
+   - [Note any surprising results]
+   - This visualization helps directly address the question of how university choice impacts salary outcomes
