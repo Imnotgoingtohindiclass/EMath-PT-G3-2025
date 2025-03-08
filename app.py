@@ -156,19 +156,19 @@ def main():
             # Create categories for visualizations
             visualization_categories = {
                 "Descriptive Analysis": [
-                    "Bar chart (Employment Rate by Degree)",
-                    "Box plot (Salary by Degree)",
-                    "Scatter plot (Employment Rate vs Salary)",
-                    "Stacked Bar Chart (Employment Types by Degree)",
-                    "University Salary Comparison (Salary by University)",
-                    "University × Degree Salary Heatmap (Salary by University & Degree)",
-                    "Employment by University (Employment Rate by University)",
-                    "University vs Degree Impact (Salary Comparison)"
+                    "Bar chart - Employment by Degree",
+                    "Box plot - Salary by Degree",
+                    "Scatter plot - Employment vs Salary",
+                    "Stacked Bar - Employment Types",
+                    "University Salary - Comparison",
+                    "Uni × Degree - Salary Heatmap",
+                    "Employment - By University",
+                    "Uni vs Degree - Salary Impact"
                 ],
                 "Inferential Analysis": [
-                    "ANOVA Analysis (Employment Rate Differences)",
-                    "Chi-Squared test (Employment Rate Distribution)",
-                    "Regression analysis (Employment Rate vs Salary)"
+                    "ANOVA - Employment Rate Differences",
+                    "Chi-Squared - Employment Distribution",
+                    "Regression - Employment vs Salary"
                 ]
             }
             
@@ -183,16 +183,37 @@ def main():
             )
             
             # Extract the base name without the description
-            base_option = selected_option.split(" (")[0]
+            base_option = selected_option.split(" - ")[0]
+            
+            # Get the description part
+            description = selected_option.split(" - ")[1] if " - " in selected_option else ""
             
         # Convert the selected option to the format used in file paths
         selected_option_path = base_option.lower().replace(" ", "_")
         
         st.markdown("---")
         st.subheader(f"{base_option} Visualisation")
-        st.caption(f"Investigating: {selected_option.split('(')[1].replace(')', '')}")
+        st.caption(f"Investigating: {description}")
         
-        if selected_option_path == "anova_analysis":
+        # Map the new option names to the original file paths
+        option_to_path = {
+            "bar_chart": "bar_chart",
+            "box_plot": "box_plot",
+            "scatter_plot": "scatter_plot",
+            "stacked_bar": "stacked_bar_chart",
+            "university_salary": "university_salary_comparison",
+            "uni_×_degree": "university_×_degree_salary_heatmap",
+            "employment": "employment_by_university",
+            "uni_vs_degree": "university_vs_degree_impact",
+            "anova": "anova_analysis",
+            "chi-squared": "chi-squared_test",
+            "regression": "regression_analysis"
+        }
+        
+        # Get the correct path for the selected option
+        file_path = option_to_path.get(selected_option_path, selected_option_path)
+        
+        if file_path == "anova_analysis":
             col1, col2 = st.columns(2)
             
             with col1:
@@ -210,7 +231,7 @@ def main():
                     st.warning("Image not found.")
         
         # Handle new visualization types
-        elif selected_option_path == "university_salary_comparison":
+        elif file_path == "university_salary_comparison":
             image_path = os.path.join("data_analysis", "bar_chart", "university_salary_comparison.png")
             text_path = os.path.join("data_analysis", "bar_chart", "university_salary_interpretation.txt")
             
@@ -224,7 +245,7 @@ def main():
             with st.expander("Interpretation", expanded=True):
                 st.write(f"**{interpretation}**")
                 
-        elif selected_option_path == "university_×_degree_salary_heatmap":
+        elif file_path == "university_×_degree_salary_heatmap":
             image_path = os.path.join("data_analysis", "heatmap", "university_degree_salary_heatmap.png")
             text_path = os.path.join("data_analysis", "heatmap", "university_degree_salary_heatmap_interpretation.txt")
             
@@ -238,7 +259,7 @@ def main():
             with st.expander("Interpretation", expanded=True):
                 st.write(f"**{interpretation}**")
                 
-        elif selected_option_path == "employment_by_university":
+        elif file_path == "employment_by_university":
             image_path = os.path.join("data_analysis", "bar_chart", "university_employment_breakdown.png")
             text_path = os.path.join("data_analysis", "bar_chart", "university_employment_interpretation.txt")
             
@@ -252,7 +273,7 @@ def main():
             with st.expander("Interpretation", expanded=True):
                 st.write(f"**{interpretation}**")
                 
-        elif selected_option_path == "university_vs_degree_impact":
+        elif file_path == "university_vs_degree_impact":
             image_path = os.path.join("data_analysis", "bar_chart", "university_vs_degree_salary_impact.png")
             text_path = os.path.join("data_analysis", "bar_chart", "university_vs_degree_salary_impact_interpretation.txt")
             
@@ -268,14 +289,18 @@ def main():
         
         else:
             # Special handling for chi-squared test
-            if selected_option_path == "chi-squared_test":
+            if file_path == "chi-squared_test":
                 image_filename = "chi-squared_test_plot.png"
                 text_filename = "chi-squared_test_interpretation.txt"
                 dir_name = "chi-squared_test"
+            elif file_path == "stacked_bar_chart":
+                image_filename = "stacked_bar_chart.png"
+                text_filename = "stacked_bar_chart_interpretation.txt"
+                dir_name = "stacked_bar_chart"
             else:
-                image_filename = selected_option_path + ".png"
-                text_filename = selected_option_path + "_interpretation.txt"
-                dir_name = selected_option_path
+                image_filename = file_path + ".png"
+                text_filename = file_path + "_interpretation.txt"
+                dir_name = file_path
             
             image_path = os.path.join("data_analysis", dir_name, image_filename)
             text_path = os.path.join("data_analysis", dir_name, text_filename)
@@ -289,7 +314,7 @@ def main():
             # Display interpretation text
             interpretation = load_interpretation(text_path)
             with st.expander("Interpretation", expanded=True):
-                if selected_option_path == "regression_analysis":
+                if file_path == "regression_analysis":
                     st.code(f"""{interpretation}""", language="text")
                     st.warning("This is rendered as a code block due to the formatting constraints of Streamlit's st.write() Method.")
                 else:
