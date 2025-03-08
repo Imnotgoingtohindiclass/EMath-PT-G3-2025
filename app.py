@@ -34,7 +34,24 @@ def main():
     st.markdown("---")
     st.subheader(f"📈 {selected_option.replace('_', ' ').title()} Visualization")
     
-    if selected_option != "anova_analysis":
+    if selected_option == "anova_analysis":
+        col1, col2 = st.columns(2)  # Define columns for ANOVA section
+        
+        with col1:
+            anova1_path = os.path.join("data_analysis", "anova_analysis", "anova_plot_ERvsUNI.png")
+            if os.path.exists(anova1_path):
+                st.image(anova1_path, caption="ANOVA: ER vs UNI", use_container_width=True)
+            else: 
+                st.warning("⚠️ Image not found.")
+        
+        with col2:
+            anova2_path = os.path.join("data_analysis", "anova_analysis", "anova_plot_ERvsDC.png")
+            if os.path.exists(anova2_path):
+                st.image(anova2_path, caption="ANOVA: ER vs DC", use_container_width=True)
+            else:
+                st.warning("⚠️ Image not found.")
+    
+    else:
         # Special handling for chi-squared test
         if selected_option == "chi-squared_test":
             image_filename = "chi-squared_test_plot.png"
@@ -63,20 +80,9 @@ def main():
             else:
                 st.write(f"**{interpretation}**")
     
-    with col1:
-        anova1_path = os.path.join("data_analysis", "anova_analysis", "anova_plot_ERvsUNI.png")
-        if os.path.exists(anova1_path):
-            st.image(anova1_path, caption="ANOVA: ER vs UNI", use_container_width=True)
-        else: 
-            st.warning("⚠️ Image not found.")
-    
-    with col2:
-        anova2_path = os.path.join("data_analysis", "anova_analysis", "anova_plot_ERvsDC.png")
-        if os.path.exists(anova2_path):
-            st.image(anova2_path, caption="ANOVA: ER vs DC", use_container_width=True)
-        else:
-            st.warning("⚠️ Image not found.")
-
 # Footer
 st.markdown("---")
 st.caption("Designed with ❤️ using Streamlit")
+
+if __name__ == "__main__":
+    main()
