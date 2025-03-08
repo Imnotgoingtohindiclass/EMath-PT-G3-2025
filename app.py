@@ -60,43 +60,28 @@ def show_methodology():
     st.markdown("""
     ### Variable Description
     
-    #### Independent Variables:
-    
-    1. **University running the degree course (Categorical)**
-       - This is to compare the difference in employment between different universities on the same degree course
-       - To analyse if the university chosen for the degree course alone is a factor in employment
-    
-    2. **Degree course (Categorical)**
-       - This is to compare the employment impact between different degree courses
-    
-    #### Dependent Variables:
-    
-    1. **Overall employment rate (Numerical) / %**
-       - This is to analyse the employment rate of a degree course or for a university, including part-time work
-    
-    2. **Full-time employment rate (Numerical) / %**
-       - This is to analyse the employment rate of a degree course or for a university, only for full-time work
-    
-    3. **Mean monthly salary (Numerical) / SGD**
-       - This is to monetarily analyse the employment impact of a degree course or for a university
+    | Variable | Category | Type | Unit | Description |
+    |----------|----------|------|------|-------------|
+    | **University running the degree course** | Independent | Categorical | - | • Compare employment differences between universities for the same degree course<br>• Analyze if university choice alone impacts employment |
+    | **Degree course** | Independent | Categorical | - | • Compare employment impact between different degree courses |
+    | **Overall employment rate** | Dependent | Numerical | % | Analysis of employment rate including part-time work |
+    | **Full-time employment rate** | Dependent | Numerical | % | Analysis of employment rate for full-time work only |
+    | **Mean monthly salary** | Dependent | Numerical | SGD | Monetary analysis of employment impact |
     
     ### Statistical Methods and Tools
     
-    #### Descriptive Statistics
-    - Mean, median, standard deviation, range
-    
-    #### Inferential Statistics
-    - ANOVA (compare employment rates by university and degree)
-    - Chi-square tests (relationships between university and employment status)
-    - Regression analysis (relationship between degree and salary)
-    
-    #### Tools
-    - Python for statistical analysis and plotting
-    - Excel for data organisation and charts
+    | Category | Methods/Tools | Purpose |
+    |----------|---------------|----------|
+    | **Descriptive Statistics** | • Mean<br>• Median<br>• Standard deviation<br>• Range | Basic statistical measures to understand data distribution |
+    | **Inferential Statistics** | • ANOVA<br>• Chi-square tests<br>• Regression analysis | • Compare employment rates by university and degree<br>• Analyze relationships between university and employment status<br>• Study relationship between degree and salary |
+    | **Tools** | • Python<br>• Excel | • Statistical analysis and plotting<br>• Data organization and charts |
     
     ### Assumptions
-    - The data used is accurate and non-biased
-    - Other factors, such as personal connections, may influence employment but are not explicitly measured
+    
+    | Assumption | Details |
+    |------------|----------|
+    | **Data Quality** | The data used is accurate and non-biased |
+    | **External Factors** | Other factors, such as personal connections, may influence employment but are not explicitly measured |
     """)
 
 def main():
