@@ -1,0 +1,17 @@
+
+Two-Way ANOVA: University × Degree Effect on Salary
+
+1. Main Effects:
+   - University Effect: F = 34.9718, p = 0.000000 (Statistically significant)
+   - Degree Category Effect: F = 47.9854, p = 0.000000 (Statistically significant)
+
+2. Interaction Visualization:
+   - The heatmap shows the mean salary for each university-degree combination
+   - Darker blue cells indicate higher salaries
+   - This visualization reveals which specific university-degree combinations yield the highest and lowest salaries
+
+3. Key Insights:
+   - Both university choice and degree category significantly impact salary outcomes
+   - The heatmap reveals patterns that suggest certain university-degree combinations offer better salary prospects
+   - This analysis directly addresses the question of how university choice affects salary for similar degree programs
+   - Students should consider both factors when making educational choices

@@ -168,7 +168,10 @@ def main():
                 "Inferential Analysis": [
                     "ANOVA - Employment Rate Differences",
                     "Chi-Squared - Employment Distribution",
-                    "Regression - Employment vs Salary"
+                    "Regression - Employment vs Salary",
+                    "Two-Way ANOVA - Uni × Degree on Salary",
+                    "Post-Hoc Tests - Significant Differences",
+                    "Multiple Regression - Factor Importance"
                 ]
             }
             
@@ -207,7 +210,10 @@ def main():
             "uni_vs_degree": "university_vs_degree_impact",
             "anova": "anova_analysis",
             "chi-squared": "chi-squared_test",
-            "regression": "regression_analysis"
+            "regression": "regression_analysis",
+            "two-way_anova": "two_way_anova",
+            "post-hoc_tests": "post_hoc",
+            "multiple_regression": "multiple_regression"
         }
         
         # Get the correct path for the selected option
