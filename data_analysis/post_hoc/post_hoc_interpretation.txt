@@ -1,0 +1,21 @@
+
+Post-Hoc Tests for ANOVA
+
+1. University Comparisons:
+   - Red cells in the heatmap indicate pairs of universities with statistically significant differences in employment rates (p < 0.05)
+   - The most significant differences are between:
+     * Nanyang Technological University and Singapore Management University (p = 0.000000)
+     * National University of Singapore and Singapore Management University (p = 0.000000)
+     * Singapore Institute of Technology and Singapore Management University (p = 0.000002)
+
+2. Degree Category Comparisons:
+   - Red cells in the heatmap indicate pairs of degree categories with statistically significant differences in employment rates (p < 0.05)
+   - The most significant differences are between:
+     * Engineering and Medicine & Health (p = 0.000000)
+     * Arts & Social Sciences and Medicine & Health (p = 0.000000)
+     * Medicine & Health and Other (p = 0.000000)
+
+3. Key Insights:
+   - These post-hoc tests reveal exactly which universities and degree programs differ significantly
+   - This provides actionable insights for students choosing between specific universities or degree programs
+   - The results show which educational choices lead to statistically different employment outcomes
