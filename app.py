@@ -54,6 +54,51 @@ def show_problem_statement():
     | **Standards** | Your analysis must include descriptive statistics and inferential statistics (ANOVA, chi-square tests, and regression analysis). Your graphical representations must be clear and well-labelled. Your final product should be well-organised, visually appealing, and have no errors. |
     """)
 
+def show_methodology():
+    st.title("3. Methodology")
+    
+    st.markdown("""
+    ### Variable Description
+    
+    #### Independent Variables:
+    
+    1. **University running the degree course (Categorical)**
+       - This is to compare the difference in employment between different universities on the same degree course
+       - To analyse if the university chosen for the degree course alone is a factor in employment
+    
+    2. **Degree course (Categorical)**
+       - This is to compare the employment impact between different degree courses
+    
+    #### Dependent Variables:
+    
+    1. **Overall employment rate (Numerical) / %**
+       - This is to analyse the employment rate of a degree course or for a university, including part-time work
+    
+    2. **Full-time employment rate (Numerical) / %**
+       - This is to analyse the employment rate of a degree course or for a university, only for full-time work
+    
+    3. **Mean monthly salary (Numerical) / SGD**
+       - This is to monetarily analyse the employment impact of a degree course or for a university
+    
+    ### Statistical Methods and Tools
+    
+    #### Descriptive Statistics
+    - Mean, median, standard deviation, range
+    
+    #### Inferential Statistics
+    - ANOVA (compare employment rates by university and degree)
+    - Chi-square tests (relationships between university and employment status)
+    - Regression analysis (relationship between degree and salary)
+    
+    #### Tools
+    - Python for statistical analysis and plotting
+    - Excel for data organisation and charts
+    
+    ### Assumptions
+    - The data used is accurate and non-biased
+    - Other factors, such as personal connections, may influence employment but are not explicitly measured
+    """)
+
 def main():
     # Add a navigation menu in the sidebar
     with st.sidebar:
@@ -88,6 +133,8 @@ def main():
             st.session_state.page = "Introduction"
         if st.button("Problem Statement"):
             st.session_state.page = "Problem Statement"
+        if st.button("Methodology"):
+            st.session_state.page = "Methodology"
         if st.button("Data Visualizations"):
             st.session_state.page = "Data Visualizations"
         
@@ -100,6 +147,8 @@ def main():
         show_introduction()
     elif st.session_state.page == "Problem Statement":
         show_problem_statement()
+    elif st.session_state.page == "Methodology":
+        show_methodology()
     else:  # Data Visualizations
         # Original visualization code
         st.title("Data Visualisation Viewer")
