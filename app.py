@@ -38,6 +38,22 @@ def show_introduction():
     increasingly competitive job market.
     """)
 
+def show_problem_statement():
+    st.title("2. Problem Statement")
+    
+    st.markdown("""
+    ### GRASPS Framework
+    
+    | Component | Description |
+    |-----------|-------------|
+    | **Goal** | Your task is to analyse the impact of the university and degree course on the employment rates of their graduates in Singapore. The goal is to identify trends and relationships that can guide students into make informed decisions about their education and future careers. |
+    | **Role** | You are a statistician working for MOE. You have been asked to analyze graduate employment outcomes from Singapore universities. Your job is to perform statistical analysis and present findings through a report and poster. |
+    | **Audience** | The target audience is students. With the ever-changing industry, finding a future safe job will become more and more difficult as you do not know the industries that will rise and the industries that will fall. You need to convince them to use your data-driven insights to help choose degree programs. |
+    | **Situation** | The context you find yourself in is the changing job market in Singapore. The challenge involves dealing with analysing large datasets, identifying patterns, and ensuring that the insights are accurate and meaningful. |
+    | **Product** | You will create a report and poster in order to summarise your findings. |
+    | **Standards** | Your analysis must include descriptive statistics and inferential statistics (ANOVA, chi-square tests, and regression analysis). Your graphical representations must be clear and well-labelled. Your final product should be well-organised, visually appealing, and have no errors. |
+    """)
+
 def main():
     # Add a navigation menu in the sidebar
     with st.sidebar:
@@ -70,6 +86,8 @@ def main():
         # Navigation buttons
         if st.button("Introduction"):
             st.session_state.page = "Introduction"
+        if st.button("Problem Statement"):
+            st.session_state.page = "Problem Statement"
         if st.button("Data Visualizations"):
             st.session_state.page = "Data Visualizations"
         
@@ -80,6 +98,8 @@ def main():
     # Display the selected page
     if st.session_state.page == "Introduction":
         show_introduction()
+    elif st.session_state.page == "Problem Statement":
+        show_problem_statement()
     else:  # Data Visualizations
         # Original visualization code
         st.title("Data Visualisation Viewer")
