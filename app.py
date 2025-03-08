@@ -41,7 +41,7 @@ def show_introduction():
 def main():
     # Add a navigation menu in the sidebar
     with st.sidebar:
-        st.title("📑 Navigation")
+        st.title("Navigation")
         
         # Custom CSS to style the buttons
         st.markdown("""
@@ -68,9 +68,9 @@ def main():
         """, unsafe_allow_html=True)
         
         # Navigation buttons
-        if st.button("📝 Introduction"):
+        if st.button("Introduction"):
             st.session_state.page = "Introduction"
-        if st.button("📈 Data Visualizations"):
+        if st.button("Data Visualizations"):
             st.session_state.page = "Data Visualizations"
         
         # Initialize session state if not exists
@@ -82,11 +82,11 @@ def main():
         show_introduction()
     else:  # Data Visualizations
         # Original visualization code
-        st.title("📊 Data Visualisation Viewer")
+        st.title("Data Visualisation Viewer")
         
         # Sidebar with a styled selection box
         with st.sidebar:
-            st.header("🔍 Select Visualisation")
+            st.header("Select Visualisation")
             options = [
                 "Bar chart",
                 "Box plot",
@@ -101,7 +101,7 @@ def main():
         selected_option = selected_option.lower().replace(" ", "_")
         
         st.markdown("---")
-        st.subheader(f"📈 {selected_option.replace('_', ' ').title()} Visualisation")
+        st.subheader(f"{selected_option.replace('_', ' ').title()} Visualisation")
         
         if selected_option == "anova_analysis":
             col1, col2 = st.columns(2)
@@ -111,14 +111,14 @@ def main():
                 if os.path.exists(anova1_path):
                     st.image(anova1_path, caption="ANOVA: ER vs UNI", use_container_width=True)
                 else: 
-                    st.warning("⚠️ Image not found.")
+                    st.warning("Image not found.")
             
             with col2:
                 anova2_path = os.path.join("data_analysis", "anova_analysis", "anova_plot_ERvsDC.png")
                 if os.path.exists(anova2_path):
                     st.image(anova2_path, caption="ANOVA: ER vs DC", use_container_width=True)
                 else:
-                    st.warning("⚠️ Image not found.")
+                    st.warning("Image not found.")
         
         else:
             # Special handling for chi-squared test
@@ -138,20 +138,20 @@ def main():
             if os.path.exists(image_path):
                 st.image(image_path, caption=f"{selected_option.replace('_', ' ').title()} Visualisation", use_container_width=True)
             else:
-                st.warning("⚠️ Image not found.")
+                st.warning("Image not found.")
             
             # Display interpretation text
             interpretation = load_interpretation(text_path)
-            with st.expander("📜 Interpretation", expanded=True):
+            with st.expander("Interpretation", expanded=True):
                 if selected_option == "regression_analysis":
                     st.code(f"""{interpretation}""", language="text")
-                    st.warning("💡 This is rendered as a code block due to the formatting constraints of Streamlit's st.write() Method.")
+                    st.warning("This is rendered as a code block due to the formatting constraints of Streamlit's st.write() Method.")
                 else:
                     st.write(f"**{interpretation}**")
     
     # Footer
     st.markdown("---")
-    st.caption("Designed with ❤️ using Streamlit")
+    st.caption("Designed using Streamlit")
 
 if __name__ == "__main__":
     main()
