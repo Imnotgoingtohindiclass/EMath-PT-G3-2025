@@ -3,7 +3,7 @@ import streamlit as st
 from PIL import Image
 
 # Configure the page layout
-st.set_page_config(page_title="Data Visualization Viewer", layout="wide")
+st.set_page_config(page_title="Data Visualisation Viewer", layout="wide")
 
 # Function to load interpretation text
 def load_interpretation(file_path):
@@ -13,11 +13,11 @@ def load_interpretation(file_path):
     return "Interpretation file not found."
 
 def main():
-    st.title("📊 Data Visualization Viewer")
+    st.title("📊 Data Visualisation Viewer")
     
     # Sidebar with a styled selection box
     with st.sidebar:
-        st.header("🔍 Select Visualization")
+        st.header("🔍 Select Visualisation")
         options = [
             "Bar chart",
             "Box plot",
@@ -32,7 +32,7 @@ def main():
     selected_option = selected_option.lower().replace(" ", "_")
     
     st.markdown("---")
-    st.subheader(f"📈 {selected_option.replace('_', ' ').title()} Visualization")
+    st.subheader(f"📈 {selected_option.replace('_', ' ').title()} Visualisation")
     
     if selected_option == "anova_analysis":
         col1, col2 = st.columns(2)  # Define columns for ANOVA section
@@ -67,7 +67,7 @@ def main():
         
         # Display image with better formatting
         if os.path.exists(image_path):
-            st.image(image_path, caption=f"{selected_option.replace('_', ' ').title()} Visualization", use_container_width=True)
+            st.image(image_path, caption=f"{selected_option.replace('_', ' ').title()} Visualisation", use_container_width=True)
         else:
             st.warning("⚠️ Image not found.")
         
