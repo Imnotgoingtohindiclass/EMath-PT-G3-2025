@@ -60,13 +60,14 @@ def show_methodology():
     st.markdown("""
     ### Variable Description
     
-    | Variable | Category | Type | Unit | Description |
-    |----------|----------|------|------|-------------|
-    | **University running the degree course** | Independent | Categorical | - | • Compare employment differences between universities for the same degree course<br>• Analyze if university choice alone impacts employment |
-    | **Degree course** | Independent | Categorical | - | • Compare employment impact between different degree courses |
-    | **Overall employment rate** | Dependent | Numerical | % | Analysis of employment rate including part-time work |
-    | **Full-time employment rate** | Dependent | Numerical | % | Analysis of employment rate for full-time work only |
-    | **Mean monthly salary** | Dependent | Numerical | SGD | Monetary analysis of employment impact |
+    | Independent Variables | Dependent Variables | Relationship Analysis |
+    |---------------------|-------------------|---------------------|
+    | **University** | **Overall employment rate** | Compare employment rates across universities for same degree programs |
+    | **University** | **Full-time employment rate** | Analyze impact of university choice on full-time employment prospects |
+    | **University** | **Mean monthly salary** | Evaluate salary differences between universities for similar programs |
+    | **Degree course** | **Overall employment rate** | Compare employment rates between different degree programs |
+    | **Degree course** | **Full-time employment rate** | Analyze which degrees lead to better full-time employment |
+    | **Degree course** | **Mean monthly salary** | Evaluate salary potential across different degree programs |
     
     ### Statistical Methods and Tools
     
