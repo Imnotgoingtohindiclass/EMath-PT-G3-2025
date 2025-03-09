@@ -169,7 +169,6 @@ def main():
                     "ANOVA - Employment Rate Differences",
                     "Chi-Squared - Employment Distribution",
                     "Regression - Employment vs Salary",
-                    "Two-Way ANOVA - Uni × Degree on Salary",
                     "Post-Hoc Tests - Significant Differences",
                     "Multiple Regression - Factor Importance"
                 ]
